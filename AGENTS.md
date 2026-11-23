@@ -12,6 +12,9 @@ It reads the subscribers, checks an issue, and sends it to a practice mail serve
 - Use uv for everything.
 - Never use a real person's email address. Use `@example.com`, and `@resend.dev` for practice sends.
 - Commit and push after every step.
+- Behaviors first: the learner gives the expected answers; Claude writes them as checks
+  (`assert` lines in `checks.py` that call the project's functions), shows them failing,
+  and only then writes the code that makes them pass.
 
 ## Purpose
 
@@ -41,7 +44,8 @@ Build the newsletter incrementally, using only concepts the learner has already 
 
 ## Commands (uv)
 
-- Run: `uv run main.py`
+- Run: `uv run mailroom.py subscribers`
+- Run the checks: `uv run checks.py`
 - Add a dependency: `uv add <package>`
 - Add a dev dependency: `uv add --dev <package>`
 - Sync environment: `uv sync`
