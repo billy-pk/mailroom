@@ -23,10 +23,12 @@ Build the newsletter incrementally, using only concepts the learner has already 
 
 ## Learner level
 
-- **Covered so far: up to and including section 13.7** of the book.
+- **Covered so far: up to and including section 13.7, Lists and dictionaries.**
 - The learner will update this line as they progress. Treat it as the source of truth.
-- Do not use language features or concepts from later sections without first
-  explaining them briefly and saying which part of the book covers them.
+- Build only with concepts from the book up to that point.
+- For anything beyond it, **teach it first**: Claude is the teacher for the next concepts.
+  Introduce one concept at a time, with a short explanation and a small example
+  tied to the newsletter, and name the book section that covers it. Only then use it in the project.
 
 ## How to work with the learner
 
