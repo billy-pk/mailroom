@@ -3,14 +3,24 @@
 Usage: uv run mailroom.py subscribers
 """
 
-import csv
 import sys
+from pathlib import Path
 
 
 def load_subscribers(path):
-    """Read the CSV file and return a list of dictionaries, one per subscriber."""
-    with open(path, newline="", encoding="utf-8") as file:
-        return list(csv.DictReader(file))
+    """Read the file and return a list of dictionaries, one per subscriber."""
+    text = Path(path).read_text(encoding="utf-8")
+    lines = text.strip().split("\n")  # strip() first, so no empty last line
+    names = lines[0].strip().split(",")  # the header: first_name, last_name, ...
+
+    subscribers = []
+    for line in lines[1:]:  # every line after the header
+        values = line.strip().split(",")  # strip() removes a Windows \r
+        subscriber = {}
+        for position in range(len(names)):
+            subscriber[names[position]] = values[position]
+        subscribers.append(subscriber)
+    return subscribers
 
 
 def count_subscribers(subscribers):
